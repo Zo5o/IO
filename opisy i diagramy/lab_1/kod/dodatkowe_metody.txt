@@ -1,0 +1,30 @@
+public static List <BookTitle> getAuthorBooksTitles(String author){
+        
+	List <BookTitle> authorBooksTitles = new ArrayList<BookTitle>();
+	
+	for(int i=0; i < bookTitles.size(); i++){
+		
+		if(bookTitles.get(i).getAuthor().equals(author)){
+			
+			authorBooksTitles.add(bookTitles.get(i));
+		}
+	}
+	
+	return authorBooksTitles;
+}
+
+public static boolean deleteBookTitle(BookTitle bookTitle){
+        
+	BookTitle result = findBookTitle(bookTitle);
+	
+	if (result != null) {
+		
+		bookTitles.remove(bookTitle);
+		
+		return true;
+	}
+	else{
+		
+		return false;
+	}
+}
