@@ -26,6 +26,9 @@ public class Cart {
 		
 		if(!productExists(product)) {
 			
+                        int size = selectedProducts.size();
+                        
+                        product.setId(size+1);
 			selectedProducts.add(product);
 			
 			return product;

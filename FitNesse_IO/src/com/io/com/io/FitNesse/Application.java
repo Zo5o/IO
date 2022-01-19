@@ -1,6 +1,5 @@
 package com.io.com.io.FitNesse;
 
-import java.awt.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -28,6 +27,33 @@ public class Application {
 		
 		return productsCatalog.addProduct(product) != null;
 	}
+        
+        public boolean addProductToCart(int customerId, Product product){
+            
+            return customers.get(customerId).getCart().addProduct(product) != null;
+        }
+        
+        public boolean updateProduct(int index, Product product) {
+		
+		return productsCatalog.updateProduct(index, product) != null;
+	}
+        
+        public double getBillValue(int customerId){
+            
+            Bill bill = new Bill(customers.get(customerId).getCart());
+            
+            return bill.getBillValue();
+        }
+        
+        public double getValueOfAllProduct(){
+            
+            return productsCatalog.getValueOfAllProduct();
+        }
+        
+        public Cart getCustomerCart(int customerId){
+            
+            return customers.get(customerId).getCart();
+        }
 	
 	public Object[] getProducts() {
 		

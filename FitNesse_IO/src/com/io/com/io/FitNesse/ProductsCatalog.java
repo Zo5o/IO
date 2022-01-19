@@ -15,20 +15,17 @@ public class ProductsCatalog {
 	}
 	
 	public Product addProduct(Product product) {
-		
-		if(!productExistsWithId(product.getId())) {
 			
-			try {
-				
-                            products.add(product);
-                            
-                            return product;
-			}
-			catch(IllegalArgumentException e) {
-				
-				return null;
-			}
-		}	
+                try {
+                    
+                    product.setId(products.size() + 1);
+                    products.add(product);
+                    
+                    return product;
+                }
+                catch(IllegalArgumentException e) {
+
+                }	
 		
 		return null;
 	}
@@ -67,6 +64,18 @@ public class ProductsCatalog {
 		
 		return products.get(index);
 	}
+        
+        public double getValueOfAllProduct(){
+            
+            double value = 0;
+            
+            for(Product p : products){
+                
+                value += p.getValue()*p.getQuantity();
+            }
+            
+            return value;
+        }
 	
 	public boolean productExistsWithId(Integer id) {
 		

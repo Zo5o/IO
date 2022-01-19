@@ -6,13 +6,12 @@ import com.io.com.io.FitNesse.Product;
 import fit.ColumnFixture;
 import java.util.Optional;
 
-public class TestAddProduct extends ColumnFixture{
+public class TestUpdateProduct extends ColumnFixture{
 
+        int id;
 	String[] data;
 	
-	public boolean addProduct() throws IllegalArgumentException {
-	
-		int numberOfProducts1 = numberOfProducts();
+	public boolean updateProduct() throws IllegalArgumentException {
                 
                 Optional<Product> p = Optional.ofNullable(Factory.createProduct(data[0], Float.valueOf(data[1]), Integer.valueOf(data[2])));
                 
@@ -21,16 +20,10 @@ public class TestAddProduct extends ColumnFixture{
                     return false;
                 }
 			
-		boolean succeed = SetUp.d_app.app.addProduct(p.get());
+		boolean succeed = SetUp.d_app.app.updateProduct(id, p.get());
 		
-		int numberOfProducts2 = numberOfProducts();
-		
-		return numberOfProducts1 != numberOfProducts2 && succeed;
-	}
-	
-	public int numberOfProducts() {
-		
-		return SetUp.d_app.app.getProducts().length;
+		return succeed;
 	}
 
 }
+

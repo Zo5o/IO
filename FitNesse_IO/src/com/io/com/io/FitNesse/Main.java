@@ -7,8 +7,9 @@ public class Main {
 		System.out.println("Wypozyczalnia sprzetu turystycznego");
                 
                 Application app = new Application();
-                app.addProduct(new Product(1, "Buty", 2, 3));
-                app.getProducts();
+                app.addProduct(Factory.createProduct("Buty", 2, 3));
+                app.addProduct(Factory.createProduct("Buty", 2, 3));
+                //System.out.println(app.getProducts()[0]);
 	}
 
 }

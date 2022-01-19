@@ -2,11 +2,11 @@ package com.io.com.io.FitNesse;
 
 public class Factory {
 
-    public static Product createProduct(Integer id, String name, float value, Integer quantity) {
+    public static Product createProduct(String name, float value, Integer quantity) {
 
             try {
 
-                return new Product(id, name, value, quantity);
+                return new Product( name, value, quantity);
             }
             catch(IllegalArgumentException e) {
 

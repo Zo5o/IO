@@ -6,8 +6,8 @@ import com.io.com.io.FitNesse.Product;
 import fit.ColumnFixture;
 import java.util.Optional;
 
-public class TestAddProduct extends ColumnFixture{
-
+public class TestAddProductToCart extends ColumnFixture{
+    
 	String[] data;
 	
 	public boolean addProduct() throws IllegalArgumentException {
@@ -21,7 +21,7 @@ public class TestAddProduct extends ColumnFixture{
                     return false;
                 }
 			
-		boolean succeed = SetUp.d_app.app.addProduct(p.get());
+		boolean succeed = SetUp.d_app.app.addProductToCart(0, p.get());
 		
 		int numberOfProducts2 = numberOfProducts();
 		
@@ -30,7 +30,7 @@ public class TestAddProduct extends ColumnFixture{
 	
 	public int numberOfProducts() {
 		
-		return SetUp.d_app.app.getProducts().length;
+		return SetUp.d_app.app.getCustomerCart(0).getSelectedProducts().size();
 	}
-
 }
+

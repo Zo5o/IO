@@ -7,14 +7,18 @@ public class Product {
 	private float value;
 	private Integer quantity;
 	
-	public Product(Integer id, String name, float value, Integer quantity) throws IllegalArgumentException{
+	public Product(String name, float value, Integer quantity) throws IllegalArgumentException{
+                
+                if(value <= 0){
+                    
+                    throw new IllegalArgumentException("Cena musi być większa od zera");
+                }
+                
+                if(quantity < 0){
+                    
+                    throw new IllegalArgumentException("Ilość produktu nie może być mniejsza od zera");
+                }
 		
-		if(id <= 0) {
-			
-                    throw new IllegalArgumentException("Id musi byc wieksze od zera");
-		}
-		
-		this.id = id;
 		this.name = name;
 		this.value = value;
 		this.quantity = quantity;
@@ -23,6 +27,16 @@ public class Product {
 	public Integer getId() {
 		return id;
 	}
+        
+        public void setId(Integer id){
+            
+            if(id <= 0) {
+			
+                throw new IllegalArgumentException("Id musi byc wieksze od zera");
+            }
+            
+            this.id = id;
+        }
 
 	public String getName() {
 		return name;

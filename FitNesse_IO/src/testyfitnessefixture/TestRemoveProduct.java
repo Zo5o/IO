@@ -1,11 +1,5 @@
 package testyfitnessefixture;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
-import com.io.com.io.FitNesse.Factory;
-import com.io.com.io.FitNesse.Product;
-
 import fit.ColumnFixture;
 
 public class TestRemoveProduct extends ColumnFixture{
@@ -16,7 +10,7 @@ public class TestRemoveProduct extends ColumnFixture{
 	
 		int numberOfProducts1 = numberOfProducts();
 			
-		boolean succeed = SetUp.d_app.app.removeProduct(Integer.valueOf(id));
+		boolean succeed = SetUp.d_app.app.removeProduct(id);
 		
 		int numberOfProducts2 = numberOfProducts();
 		
